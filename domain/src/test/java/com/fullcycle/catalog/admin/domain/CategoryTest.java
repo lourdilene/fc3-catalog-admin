@@ -1,5 +1,6 @@
-package com.fullcycle.catalog.admin.domain.category;
+package com.fullcycle.catalog.admin.domain;
 
+import com.fullcycle.catalog.admin.domain.category.Category;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
