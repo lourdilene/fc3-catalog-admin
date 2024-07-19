@@ -1,10 +1,11 @@
 package com.fullcycle.catalog.admin.domain.category;
 
+import com.fullcycle.catalog.admin.domain.AggregateRoot;
+
 import java.time.Instant;
 import java.util.UUID;
 
-public class Category {
-    private String id;
+public class Category extends AggregateRoot<CategoryID> {
     private String name;
     private String description;
     private boolean isActive;
@@ -12,32 +13,32 @@ public class Category {
     private Instant updatedAt;
     private Instant deletedAt;
 
-    private Category(final String id,
-                     final String name,
-                     final String description,
+    private Category(final CategoryID anId,
+                     final String aName,
+                     final String aDescription,
                      final boolean isActive,
-                     final Instant createdAt,
-                     final Instant updatedAt,
-                     final Instant deletedAt) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
+                     final Instant aCreatedAt,
+                     final Instant anUpdatedAt,
+                     final Instant aDeletedAt) {
+        super(anId);
+        this.name = aName;
+        this.description = aDescription;
         this.isActive = isActive;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
-        this.deletedAt = deletedAt;
+        this.createdAt = aCreatedAt;
+        this.updatedAt = anUpdatedAt;
+        this.deletedAt = aDeletedAt;
     }
 
     public static Category newCategory(final String aName,
                                        final String aDescription,
                                        final boolean aIsActive){
-        final var id = UUID.randomUUID().toString();
+        final var id = CategoryID.unique();
         final var now = Instant.now();
 
         return new Category(id, aName, aDescription, aIsActive, now, now, null);
     }
 
-    public String getId() {
+    public CategoryID getId() {
         return id;
     }
 
