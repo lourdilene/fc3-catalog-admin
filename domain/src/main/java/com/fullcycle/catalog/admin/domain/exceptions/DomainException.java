@@ -1,5 +1,7 @@
 package com.fullcycle.catalog.admin.domain.exceptions;
 
+import com.fullcycle.catalog.admin.domain.validation.Error;
+
 import java.util.List;
 
 public class DomainException extends RuntimeException{

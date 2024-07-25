@@ -29,7 +29,7 @@ public class CategoryTest {
     @Test
     public void givenAnInvalidNullName_whenCallNewCategoryAndValidate_thenShoudReceiveError(){
         final String expectedName = null;
-        final var expectedErrorMessage = "'name' shoud not be null";
+        final var expectedErrorMessage = "'name' should not be null";
         final var expectedErrorCunt = 1;
         final var expectedDescription = "The most watched category";
         final var expectedIsActive = true;
@@ -38,7 +38,7 @@ public class CategoryTest {
 
         final var actualException = Assertions.assertThrows(DomainException.class, ()-> actualCategory.validate(new ThrowsValidationHandler()));
 
-        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).getMessage());
+        Assertions.assertEquals(expectedErrorMessage, actualException.getErrors().get(0).message());
         Assertions.assertEquals(expectedErrorCunt, actualException.getErrors().size());
     }
 }
