@@ -40,39 +40,39 @@ public class Category extends AggregateRoot<CategoryID> {
         return new Category(id, aName, aDescription, aIsActive, now, now, null);
     }
 
-    public static Category with(
-            final CategoryID anId,
-            final String name,
-            final String description,
-            final boolean active,
-            final Instant createdAt,
-            final Instant updatedAt,
-            final Instant deletedAt
-    ){
-        return new Category(
-                anId,
-                name,
-                description,
-                active,
-                createdAt,
-                updatedAt,
-                deletedAt
-        );
-    }
-
-    public static Category with(
-            final Category aCategory
-    ){
-        return with(
-                aCategory.getId(),
-                aCategory.getName(),
-                aCategory.getDescription(),
-                aCategory.getActive(),
-                aCategory.getCreatedAt(),
-                aCategory.getUpdatedAt(),
-                aCategory.getDeletedAt()
-        );
-    }
+//    public static Category with(
+//            final CategoryID anId,
+//            final String name,
+//            final String description,
+//            final boolean active,
+//            final Instant createdAt,
+//            final Instant updatedAt,
+//            final Instant deletedAt
+//    ){
+//        return new Category(
+//                anId,
+//                name,
+//                description,
+//                active,
+//                createdAt,
+//                updatedAt,
+//                deletedAt
+//        );
+//    }
+//
+//    public static Category with(
+//            final Category aCategory
+//    ){
+//        return with(
+//                aCategory.getId(),
+//                aCategory.getName(),
+//                aCategory.getDescription(),
+//                aCategory.getActive(),
+//                aCategory.getCreatedAt(),
+//                aCategory.getUpdatedAt(),
+//                aCategory.getDeletedAt()
+//        );
+//    }
 
     @Override
     public void validate(final ValidationHandler handler) {
@@ -140,12 +140,12 @@ public class Category extends AggregateRoot<CategoryID> {
         return deletedAt;
     }
 
-    @Override
-    public Category clone() {
-        try {
-            return (Category) super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new AssertionError();
-        }
-    }
+//    @Override
+//    public Category clone() {
+//        try {
+//            return (Category) super.clone();
+//        } catch (CloneNotSupportedException e) {
+//            throw new AssertionError();
+//        }
+//    }
 }
